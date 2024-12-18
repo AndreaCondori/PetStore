@@ -10,11 +10,10 @@ Feature: Crear y consultar órdenes usando la API Swagger PetStore
     Then valido el status code de la respuesta es 200
     And valido que el ID de la orden es <orderId>, el estado es "<status>" y completado es "<complete>"
 
-
     Examples:
-      | orderId | petId | quantity | shipDate         | status   | complete |  |
-      | 7       | 101   | 2        | 2024-12-16T12:00 | Pending  | true     |  |
-      | 2       | 102   | 5        | 2024-12-17T14:00 | approved | false    |  |
+      | orderId | petId | quantity | shipDate         | status   | complete |
+      | 7       | 101   | 2        | 2024-12-16T12:00 | Pending  | true     |
+      | 2       | 102   | 5        | 2024-12-17T14:00 | approved | false    |
 
   Scenario Outline: Consultar una orden existente
     Given el path es "/store/order/{orderId}"
@@ -23,7 +22,8 @@ Feature: Crear y consultar órdenes usando la API Swagger PetStore
     And valido que el ID de la orden es <orderId>, el estado es "<status>" y completado es "<complete>"
 
     Examples:
-      | orderId | status   | complete |  |
-      | 7       | Pending  | true     |  |
-      | 2       | approved | false    |  |
+      | orderId | status   | complete |
+      | 7       | Pending  | true     |
+      | 2       | approved | false    |
+
 
