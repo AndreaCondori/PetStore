@@ -6,10 +6,12 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        plugin = {"pretty"},
-        features = "classpath:features",
-
-        tags = "@Order"   //  ==> Definir el @tag  a ejecutar
+        plugin = {"html:target/cucumber/cucumber-report.html",
+                "json:target/cucumber/cucumber.json"},
+        stepNotifications = true,
+        features = "src/test/resources/features",
+        glue = "com.nttdata",
+        tags = "@Order"
 )
 public class CucumberTestSuite {
 }
